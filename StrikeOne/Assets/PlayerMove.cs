@@ -5,13 +5,13 @@ public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public float dodgeSpeed = 2F;
-    //public Rigidbody rb;
+    private Rigidbody rb;
     public float dodge;
     private bool currentDodge;
     // Use this for initialization
     void Start()
     {
-       
+       rb=GetComponent<Rigidbody>();
 
     }
 
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
         if (move)
         {
             transform.eulerAngles = new Vector3(0, angle, 0);
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            rb.velocity = transform.forward * moveSpeed;
         }
 
         #region shitty code
@@ -90,7 +90,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(Dodge(Vector3.forward));
+            StartCoroutine(Dodge(transform.forward));
         }
     }
 
@@ -102,7 +102,7 @@ public class PlayerMove : MonoBehaviour
 
         while (dodgeAmount > 0)
         {
-            transform.Translate(direction * dodgeSpeed * Time.deltaTime);
+            rb.velocity = direction * dodgeSpeed;
             dodgeAmount -= dodgeSpeed * Time.deltaTime;
             yield return 0;
         }
