@@ -88,7 +88,7 @@ public class PlayerMove : MonoBehaviour
         #endregion
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&move==true)
         {
             StartCoroutine(Dodge(transform.forward));
         }
