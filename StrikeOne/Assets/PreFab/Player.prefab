@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114455874038601354}
   - component: {fileID: 54396280060121442}
   - component: {fileID: 65326663224086352}
+  - component: {fileID: 65413735954669604}
   m_Layer: 0
   m_Name: Player
   m_TagString: PlayerTarget
@@ -188,6 +189,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65413735954669604
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566856901015268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65421450215932170
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -213,7 +226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   dodgeSpeed: 150
-  dodge: 15
+  bat: {fileID: 65413735954669604}
+  dodge: 10
 --- !u!136 &136876606510071784
 CapsuleCollider:
   m_ObjectHideFlags: 1
