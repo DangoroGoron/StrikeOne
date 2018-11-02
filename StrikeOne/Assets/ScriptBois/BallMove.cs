@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallMove : MonoBehaviour {
-
+public class BallMove : MonoBehaviour
+{
+    public float ballSpeed;
+    public float speedInc;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,22 +13,26 @@ public class BallMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        f(Input.GetMouseButton(0))
-            RotateToMouse();
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
         
     }
 
-    void RotateToMouse()
+    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
     {
-        Vector3 v3T = Input.mousePosition;
-        v3T.z = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
-        v3T = Camera.main.ScreenToWorldPoint(v3T);
-        v3T -= transform.position;
-        v3T = v3T * 10000.0f + transform.position;
-        transform.LookAt(v3T);
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            {
+                //points to the mouse's position when the left mouse button is clicked
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Debug.Log(Input.mousePosition);
+                
+            }
+        }
+
     }
 }
