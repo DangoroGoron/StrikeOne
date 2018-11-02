@@ -6,14 +6,12 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 1f;
     public float dodgeSpeed = 2F;
     private Rigidbody rb;
-    public BoxCollider bat;
     public float dodge;
     private bool currentDodge;
     // Use this for initialization
     void Start()
     {
        rb=GetComponent<Rigidbody>();
-       bat = GetComponent<BoxCollider>();
 
     }
 
@@ -62,17 +60,7 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = transform.forward * moveSpeed;
         }
 // If statement to enable colider but I need to figure out how to disable it.
-        if (Input.GetMouseButtonDown(0))
-        {
-            bat = true;
-           
-
-        }
-        else
-        {
-            bat = false;
-
-        }
+       
         #region shitty code
         //Vector3 direction = Vector3.zero;
 
