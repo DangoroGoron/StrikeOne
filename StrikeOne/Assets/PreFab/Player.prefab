@@ -224,9 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e4b167448f319449ff30151ad4bd83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  dodgeSpeed: 150
-  bat: {fileID: 65413735954669604}
+  moveSpeed: 10
+  dodgeSpeed: 30
   dodge: 10
 --- !u!136 &136876606510071784
 CapsuleCollider:

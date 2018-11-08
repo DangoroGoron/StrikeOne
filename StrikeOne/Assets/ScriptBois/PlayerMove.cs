@@ -57,45 +57,13 @@ public class PlayerMove : MonoBehaviour
         if (move)
         {
             transform.eulerAngles = new Vector3(0, angle, 0);
-            rb.velocity = transform.forward * moveSpeed;
+            rb.velocity = transform.forward * (Input.GetKey(KeyCode.Space) ? dodgeSpeed : moveSpeed);
         }
 // If statement to enable colider but I need to figure out how to disable it.
-       
-        #region shitty code
-        //Vector3 direction = Vector3.zero;
 
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    direction += Vector3.forward;
-        //    //transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    direction += Vector3.back;
-        //    //transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    direction += Vector3.left;
-        //    //transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    direction += Vector3.right;
-        //    //transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        //}
-
-        //transform.Translate(direction * moveSpeed * Time.deltaTime);
-        #endregion
-
-
-        if (Input.GetKeyDown(KeyCode.Space)&&move==true)
-        {
-            StartCoroutine(Dodge(transform.forward));
-        }
     }
 
-    private IEnumerator Dodge(Vector3 direction)
+    /*private IEnumerator Dodge(Vector3 direction)
     {
         currentDodge = true;
 
@@ -110,4 +78,5 @@ public class PlayerMove : MonoBehaviour
 
         currentDodge = false;
     }
+    */
 }

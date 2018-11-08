@@ -24,10 +24,10 @@ GameObject:
   - component: {fileID: 136321799662863742}
   - component: {fileID: 54585008684901960}
   - component: {fileID: 114075658854031156}
-  - component: {fileID: 65402874464881640}
+  - component: {fileID: 136386514074827926}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,18 +176,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65402874464881640
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1447520980665048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.302444, z: 1.5041778}
-  m_Center: {x: 0, y: 0.15122205, z: 0.2520889}
 --- !u!114 &114075658854031156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopRange: 3
-  moveSpeed: 10
+  moveSpeed: 5
 --- !u!135 &135156769800510344
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -222,6 +210,19 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136386514074827926
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447520980665048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

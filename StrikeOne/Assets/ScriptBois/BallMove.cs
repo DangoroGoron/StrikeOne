@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallMove : MonoBehaviour
 {
@@ -9,18 +7,19 @@ public class BallMove : MonoBehaviour
     private bool ballMove;
     private Rigidbody rb;
 
-    private Material mat;
+    // private Material mat;
 
     private void Awake()
     {
-        mat = GetComponent<Renderer>().material;
+        // mat = GetComponent<Renderer>().material;
         rb = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (ballMove)
         {
-            mat.color = new Color(Random.value, Random.value, Random.value);
+            //mat.color = new Color(Random.value, Random.value, Random.value);
             rb.velocity = transform.forward * ballSpeed;
         }
     }
@@ -51,5 +50,21 @@ public class BallMove : MonoBehaviour
             }
         }
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Enemy"))
+            return;
+
+        Vector3 heading = other.transform.position - transform.position;
+        Vector3 direction = heading / heading.magnitude;
+
+        RaycastHit hit;
+        Physics.Raycast(transform.position, direction, out hit);
+
+        Vector3 normal = hit.normal;
+        normal.y = transform.forward.y;
+        transform.forward = normal;
+        ballSpeed += speedInc;
     }
 }
